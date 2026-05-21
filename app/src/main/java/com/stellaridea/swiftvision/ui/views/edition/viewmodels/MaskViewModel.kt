@@ -92,10 +92,15 @@ class MaskViewModel @Inject constructor(
 
     fun toggleMaskSelection(maskId: Long) {
         val updatedMasks = _masks.value?.map { mask ->
-            mask.copy(active = mask.id == maskId) // Solo el seleccionado tendrá active = true
+            if (mask.id == maskId) {
+                mask.copy(active = !mask.active) // Alternar el estado activo si es la máscara seleccionada
+            } else {
+                mask.copy(active = false) // Desactivar otras máscaras
+            }
         } ?: return
         _masks.value = updatedMasks
     }
+
 
 
     fun detectMaskTap(tapPosition: Offset, maskSize: IntSize) {

@@ -66,13 +66,7 @@ fun ProjectItem(
                     }
                 }
             },
-            dismissButton = {
-                TextButton(
-                    onClick = { if (!isLoading) showEditDialog = false }
-                ) {
-                    Text("Cancelar")
-                }
-            }
+
         )
     }
 
@@ -96,11 +90,6 @@ fun ProjectItem(
                     Text("Eliminar")
                 }
             },
-            dismissButton = {
-                TextButton(onClick = { showDeleteDialog = false }) {
-                    Text("Cancelar")
-                }
-            }
         )
     }
 
